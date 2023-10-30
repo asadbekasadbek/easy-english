@@ -15054,7 +15054,7 @@ function playVoice() {
                 speech.voice = voices[voiceSelect.value];
             }
             speech.onend = function () {
-                const cell = document.getElementById(item.id);git
+                const cell = document.getElementById(item.id);
                 cell.style.backgroundColor = '#57f808';
                 cell.style.color = "#ffffff";
             };
