@@ -15059,7 +15059,6 @@ function playVoice() {
                 cell.style.color = "#ffffff";
             };
             window.speechSynthesis.speak(speech);
-
             speech = new SpeechSynthesisUtterance(item.ru);
             speech.voice = voices[17];
             window.speechSynthesis.speak(speech);
