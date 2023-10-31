@@ -14999,6 +14999,7 @@ let stop1 = document.getElementById('stop1');
 
 
 let voiceSelect = document.getElementById("voice");
+
 let speech = new SpeechSynthesisUtterance();
 
 let voices = [];
@@ -15012,7 +15013,9 @@ voiceSelect.addEventListener('change', () => {
 let mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () {
+    scrollFunction()
+};
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -15027,6 +15030,19 @@ function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+
+window.speechSynthesis.onvoiceschanged = () => {
+    voices = window.speechSynthesis.getVoices();
+    speech.voice = voices[0];
+
+    voices
+        .filter(voice => voice.lang.startsWith('en'))
+        .map((voice, idx) => voiceSelect.options[idx] = new Option(voice.name, idx))
+}
+
+voiceSelect.addEventListener('change', () => {
+    speech.voice = voices[voiceSelect.value]
+})
 
 function randomIntFromInterval(min, max) { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -15048,11 +15064,7 @@ function playVoice() {
     arr.slice(parseInt(where)).map((item, i) => {
         for (let j = 0; j < parseInt(repetitions); j++) {
             let speech = new SpeechSynthesisUtterance(item.en);
-            if (parseInt(numb) === 1) {
-                speech.voice = voices[randomIntFromInterval(3, 5)];
-            } else {
-                speech.voice = voices[voiceSelect.value];
-            }
+            speech.voice = voices[voiceSelect.value];
             speech.onend = function () {
                 const cell = document.getElementById(item.id);
                 cell.style.backgroundColor = '#57f808';
