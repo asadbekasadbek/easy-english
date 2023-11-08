@@ -44,27 +44,28 @@
     <button type="button" onclick="stopVoice()" id="stop" class="flex "><img style="width: 20px; height: 20px" src="img/stop.png">
     </button>
 </div>
-<section class="container mx-auto  font-mono">
+<section class="p-1" >
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
         <div class="flex mt-1">
-            <form class="bg-white shadow-md w-full rounded px-8 pt-6 pb-8 mb-4  flex flex-wrap">
+            <form class="bg-white shadow-md w-full rounded px-8 pt-6 pb-8 mb-4   flex flex-wrap flex-col">
                 <div class="m-1">
-                    <label class="block text-gray-700 text-sm font-bold mb-2 ml-2">
-                        Поменять голос
+                    <label style="font-size: 4rem" class="block text-gray-700  font-bold mb-2 m-1">
+                       Поменять голос
                     </label>
-                    <select id="voice" style="color:#ffffff">
+                    <select class="w-full" id="voice" style="color:#ffffff">
+                        <option value="random">Случайны голос</option>
                     </select>
                 </div>
                 <div class="m-1">
-                    <label class="block text-gray-700 text-sm font-bold mb-2 ml-2">
-                        повторения
+                    <label style="font-size: 4rem" class="block text-gray-700  font-bold mb-2 m-1">
+                        Повторения
                     </label>
                     <input id="repetitions" style="color:#ffffff" min="1" value="1" type="tel"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                            placeholder="1" required>
                 </div>
                 <div class="m-1">
-                    <label class="block text-gray-700 text-sm font-bold mb-2 ml-2">
+                    <label style="font-size: 4rem" class="block text-gray-700  font-bold mb-2 m-1">
                         Откуда начать
                     </label>
                     <input id="where" style="color:#ffffff" min="1" value="0" type="tel"
@@ -72,7 +73,7 @@
                            placeholder="1" required>
                 </div>
 
-                    <div class="flex justify-end items-end">
+                    <div class="flex justify-center ">
                         <button type="button"  onclick="playVoice()" id="play1" class="flex" ><img src="img/play.png"></button>
                     </div>
                     <div class="flex justify-end items-end">

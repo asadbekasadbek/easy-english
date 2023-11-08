@@ -15012,6 +15012,7 @@ voiceSelect.addEventListener('change', () => {
 
 let mybutton = document.getElementById("myBtn");
 
+
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
     scrollFunction()
@@ -15034,10 +15035,6 @@ function topFunction() {
 window.speechSynthesis.onvoiceschanged = () => {
     voices = window.speechSynthesis.getVoices();
     speech.voice = voices[0];
-
-    voices
-        .filter(voice => voice.lang.startsWith('en'))
-        .map((voice, idx) => voiceSelect.options[idx] = new Option(voice.name, idx))
 }
 
 voiceSelect.addEventListener('change', () => {
@@ -15047,24 +15044,49 @@ voiceSelect.addEventListener('change', () => {
 function randomIntFromInterval(min, max) { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
+let  ru = [];
+
+function start() {
+     voices = window.speechSynthesis.getVoices();
+     let arr1 = [];
+
+    voices
+        .filter(voice => voice.lang.startsWith('ru-RU'))
+        .map((voice, idx) => {
+            ru[idx]=voice;
+        })
+
+    voices
+        .filter(voice => voice.lang.startsWith('en'))
+        .map((voice, idx) => {
+            voiceSelect.innerHTML += `<option value="${idx}">${voice.name}</option>`;
+            arr1[idx] = voice;
+        })
+    voices = arr1;
+}
+ setTimeout(start,100);
 
 function playVoice() {
-    let repetitions = document.getElementById('repetitions').value;
-    let where = document.getElementById('where').value;
-    voices = window.speechSynthesis.getVoices();
 
     play.style.display = 'none';
     play1.style.display = 'none';
     stop.style.display = 'flex';
     stop1.style.display = 'flex';
-    let numb = voiceSelect.value;
+    let repetitions = document.getElementById('repetitions').value;
+    let where = document.getElementById('where').value;
+
+
     arr.forEach((item, i) => {
         document.getElementById(i).style = "background:#ffffff;color:#000000";
     })
     arr.slice(parseInt(where)).map((item, i) => {
         for (let j = 0; j < parseInt(repetitions); j++) {
             let speech = new SpeechSynthesisUtterance(item.en);
-            speech.voice = voices[voiceSelect.value];
+            if (voiceSelect.value =='random'){
+                speech.voice = voices[randomIntFromInterval(0,voices.length-1)];
+            }else {
+                speech.voice = voices[voiceSelect.value];
+            }
             speech.onend = function () {
                 const cell = document.getElementById(item.id);
                 cell.style.backgroundColor = '#57f808';
@@ -15072,7 +15094,7 @@ function playVoice() {
             };
             window.speechSynthesis.speak(speech);
             speech = new SpeechSynthesisUtterance(item.ru);
-            speech.voice = voices[17];
+            speech.voice = ru[0];
             window.speechSynthesis.speak(speech);
         }
     });

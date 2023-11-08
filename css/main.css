@@ -30,7 +30,7 @@ select{
 	text-indent: 10px;
 	flex: 1;
 	background: rgb(20, 59, 252);
-	height: 50px;
+	height: 5vh;
 	padding: 0 20px;
 	outline: 0;
 	border: 0;
@@ -40,15 +40,12 @@ select{
 	background-position-x: calc(100% - 20px);
 	background-position-y: 20px;
 }
-#voice{
-	background-image: url("../img/dropdown.png");
-	background-repeat: no-repeat;
-}
+
 #repetitions{
 	text-indent: 10px;
 	flex: 1;
 	background: rgb(20, 59, 252);
-	height: 50px;
+	height: 5vh;
 	padding: 0 20px;
 	outline: 0;
 	border: 0;
@@ -62,7 +59,7 @@ select{
 	text-indent: 10px;
 	flex: 1;
 	background: rgb(20, 59, 252);
-	height: 50px;
+	height: 5vh;
 	padding: 0 20px;
 	outline: 0;
 	border: 0;
@@ -97,17 +94,18 @@ button{
 }
 
 button img{
-	width: 16px;
+	width: 60px !important;
+	height: 60px !important;
 }
 
 #play{
 	border: white solid 1px;
 	position: fixed;
 	background: #57f808;
-	height: 40px;
-	width: 40px;
+	height: 200px;
+    width: 200px;
 	border-radius: 50%;
-	z-index: 99;
+	z-index: 999;
 	top: 50%;
 	right: 0;
 
@@ -116,8 +114,8 @@ button img{
 #stop{
 	border: white solid 1px;
 	background: red;
-	height: 40px;
-	width: 40px;
+	height: 200px;
+	width: 200px;
 	border-radius: 50%;
 	z-index: 100;
 	position: fixed;
@@ -131,11 +129,10 @@ button img{
 	background: #57f808;
 	border-radius: 6px;
 	text-align: center;
-	height: 50px;
-	width: 50px;
 	z-index: 99;
-	margin-bottom: 5px;
-
+	margin-top: 10px;
+	height: 60px;
+	width: 100%;
 }
 
 #stop1{
@@ -143,8 +140,8 @@ button img{
 	background: red;
 	border-radius: 6px;
 	text-align: center;
-	height: 50px;
-	width: 50px;
+	height: 60px;
+	width: 100%;
 	z-index: 99;
 	margin-bottom: 5px;
 	display: none;
@@ -171,4 +168,8 @@ button img{
 
 #myBtn:hover {
 	background-color: #57f808;
+}
+
+td{
+	font-size: 3rem !important;
 }
