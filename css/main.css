@@ -13,7 +13,7 @@ body{
 	background: linear-gradient(90deg, rgba(63,94,251,1) 18%, rgba(252,70,107,1) 100%);
 }
 button{
-	background: #ff2963;
+
 	color: #fff;
 	font-size: 16px;
 	padding: 10px 30px;
@@ -29,7 +29,7 @@ button{
 select{
 	text-indent: 10px;
 	flex: 1;
-	background: rgb(20, 59, 252);
+
 	height: 5vh;
 	padding: 0 20px;
 	outline: 0;
@@ -99,9 +99,9 @@ button img{
 }
 
 #play{
-	border: white solid 1px;
+
 	position: fixed;
-	background: #57f808;
+
 	height: 200px;
     width: 200px;
 	border-radius: 50%;
@@ -112,8 +112,8 @@ button img{
 }
 
 #stop{
-	border: white solid 1px;
-	background: red;
+
+
 	height: 200px;
 	width: 200px;
 	border-radius: 50%;
@@ -126,7 +126,7 @@ button img{
 
 #play1{
 	border: white solid 1px;
-	background: #57f808;
+
 	border-radius: 6px;
 	text-align: center;
 	z-index: 99;
@@ -136,8 +136,8 @@ button img{
 }
 
 #stop1{
-	border: white solid 1px;
-	background: red;
+
+
 	border-radius: 6px;
 	text-align: center;
 	height: 60px;

@@ -15028,8 +15028,10 @@ function scrollFunction() {
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    window.scrollTo({
+        top: 0, // Верх страницы
+        behavior: 'smooth' // Плавная прокрутка
+    });
 }
 
 window.speechSynthesis.onvoiceschanged = () => {
@@ -15108,3 +15110,18 @@ function stopVoice() {
     stop1.style.display = 'none';
     synth.cancel();
 }
+
+
+
+const tbody = document.querySelector('#table tbody');
+
+// Создаём строки через innerHTML
+tbody.innerHTML = arr.map((item, index) => `
+    <tr id="${index}" class="text-gray-700 px-4 py-3 border">
+        <td class="px-4 py-3 border">${index + 1}</td> <!-- Отображаем номер строки -->
+        <td class="px-4 py-3 border">${item.en || '—'}</td>
+        <td class="px-4 py-3 border">${item.ru || '—'}</td>
+    </tr>
+`).join('');
+
+
