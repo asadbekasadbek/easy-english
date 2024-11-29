@@ -3563,8 +3563,7 @@ voiceSelect.addEventListener('change', () => {
 function randomIntFromInterval(min, max) { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
-
-let ru = [];
+let  ru = [];
 
 function start() {
     voices = window.speechSynthesis.getVoices();
@@ -3584,24 +3583,27 @@ function start() {
         })
     voices = arr1;
 }
+setTimeout(start,100);
 
-setTimeout(start, 100);
+function playVoice() {
 
-function playVoice() {play.style.display = 'none';
+    play.style.display = 'none';
     play1.style.display = 'none';
     stop.style.display = 'flex';
     stop1.style.display = 'flex';
     let repetitions = document.getElementById('repetitions').value;
     let where = document.getElementById('where').value;
-arr.forEach((item, i) => {
+
+
+    arr.forEach((item, i) => {
         document.getElementById(i).style = "background:#ffffff;color:#000000";
     })
     arr.slice(parseInt(where)).map((item, i) => {
         for (let j = 0; j < parseInt(repetitions); j++) {
             let speech = new SpeechSynthesisUtterance(item.en);
-            if (voiceSelect.value == 'random') {
-                speech.voice = voices[randomIntFromInterval(0, voices.length - 1)];
-            } else {
+            if (voiceSelect.value =='random'){
+                speech.voice = voices[randomIntFromInterval(0,voices.length-1)];
+            }else {
                 speech.voice = voices[voiceSelect.value];
             }
             speech.onend = function () {
@@ -3619,10 +3621,13 @@ arr.forEach((item, i) => {
 
 function stopVoice() {
     play.style.display = 'flex';
-    play1.style.display = 'flex';stop.style.display = 'none';
+    play1.style.display = 'flex';
+
+    stop.style.display = 'none';
     stop1.style.display = 'none';
     synth.cancel();
 }
+
 
 
 const tbody = document.querySelector('#table tbody');
